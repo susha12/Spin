@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	min-height: 100vh;
+	background: #00beac;
+}
+.container{
+	height: 350px;
+	width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	position: relative;
+	transition: 3s all;
+}
+
+#spin{
+	height: 60px;
+	width: 200px;
+	background: #4ed4c6;
+	position: absolute;
+	margin-top: 500px;
+	font-size: 30px;
+	color: white;
+	font-weight: 1000;
+	letter-spacing: 4px;
+	border: 1px solid white;
+	cursor: pointer;
+	box-shadow: 0 5px 10px gray;
+	transition: 0.2s all;
+}
+#spin:hover{
+	box-shadow: none;
+}
+img{
+    width: 350px;
+    position: relative;
+    left: 12px;
+    top: 10px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+		<img src="./img.png" alt="img">
+	</div>
+		<button id="spin">Spin</button>
+    <script>
+        let container = document.querySelector(".container");
+        let btn = document.getElementById("spin");
+        let number = Math.ceil(Math.random() * 10000);
+        let flash = document.querySelector(".container div");
+        btn.onclick = function () {
+        container.style.transform = "rotate(" + number + "deg)";
+        number += Math.ceil(Math.random() * 10000);
+        }
+    </script>
+</body>
+</html>
